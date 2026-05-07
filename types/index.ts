@@ -1,0 +1,130 @@
+export type BusinessStatus =
+  | 'new'
+  | 'analyzed'
+  | 'contacted'
+  | 'follow_up_1'
+  | 'follow_up_2'
+  | 'follow_up_3'
+  | 'report_paid'
+  | 'huella_paid'
+  | 'tutorial_paid'
+  | 'site_active'
+  | 'renewal_pending'
+  | 'renewed'
+  | 'lost'
+  | 'closed_permanently'
+
+export type IssueStatus = 'pending' | 'reviewed' | 'resolved' | 'ignored'
+export type IssueType = 'wrong_profile' | 'incorrect_link' | 'outdated_info'
+export type CityStatus = 'pending' | 'active' | 'completed' | 'paused'
+
+export interface Business {
+  id: string
+  place_id: string
+  slug: string
+  name: string
+  category: string | null
+  city: string | null
+  country: string
+  address: string | null
+  phone: string | null
+  email: string | null
+  email_source: string | null
+  whatsapp: string | null
+  whatsapp_source: string | null
+  website: string | null
+  needs_review: boolean
+  missing_fields: string[] | null
+  score_p2a: number
+  score_p2b: number
+  score_p2c: number
+  score_p2d: number
+  score_p2e: number
+  score_p2f: number
+  score_total: number
+  rating: number | null
+  num_reviews: number
+  status: BusinessStatus
+  plan: string | null
+  has_reported_issue: boolean
+  latitude: number | null
+  longitude: number | null
+  google_maps_url: string | null
+  latest_report_id: string | null
+  scraped_at: string | null
+  created_at: string
+  updated_at: string
+}
+
+export interface Report {
+  id: string
+  business_id: string
+  type: string
+  generated_at: string
+  score_total: number
+  score_p2a: number
+  score_p2b: number
+  score_p2c: number
+  score_p2d: number
+  score_p2e: number
+  score_p2f: number
+  general_note: string | null
+  general_note_edited: boolean
+  modulo_p2a: ModuloData | null
+  modulo_p2b: ModuloData | null
+  modulo_p2c: ModuloData | null
+  modulo_p2d: ModuloData | null
+  modulo_p2e: ModuloData | null
+  modulo_p2f: ModuloData | null
+  is_public: boolean
+  version: number
+}
+
+export interface ModuloData {
+  score: number
+  nota: string | null
+  nota_editada: boolean
+  datos: Record<string, unknown>
+}
+
+export interface OutreachLog {
+  id: string
+  business_id: string
+  type: string
+  status: 'sent' | 'opened' | 'replied' | 'bounced'
+  sent_at: string
+  metadata: Record<string, unknown> | null
+}
+
+export interface IssueReport {
+  id: string
+  business_id: string
+  report_id: string | null
+  type: IssueType
+  detalle: string | null
+  status: IssueStatus
+  internal_note: string | null
+  action_taken: string | null
+  reported_at: string
+  resolved_at: string | null
+  businesses?: Pick<Business, 'name' | 'city' | 'country' | 'slug'>
+}
+
+export interface City {
+  id: string
+  name: string
+  country: string
+  status: CityStatus
+  started_at: string | null
+  last_run_at: string | null
+  total_leads: number
+  leads_with_email: number
+  leads_with_whatsapp: number
+  leads_contacted: number
+  leads_paid: number
+  peak_season_start: string | null
+  peak_season_end: string | null
+  notes: string | null
+  created_at: string
+  updated_at: string
+}
