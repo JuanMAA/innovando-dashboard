@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, MapPin, Users, AlertTriangle } from 'lucide-react'
+import { LayoutDashboard, MapPin, Users, AlertTriangle, Activity } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const links = [
@@ -10,6 +10,7 @@ const links = [
   { href: '/ciudades', label: 'Ciudades', icon: MapPin },
   { href: '/leads', label: 'Leads', icon: Users },
   { href: '/problemas', label: 'Problemas', icon: AlertTriangle },
+  { href: '/apis', label: 'APIs', icon: Activity },
 ]
 
 export default function Sidebar() {
