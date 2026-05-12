@@ -19,7 +19,7 @@ export default function Sidebar() {
   return (
     <aside className="w-56 shrink-0 bg-white border-r border-gray-200 flex flex-col">
       <div className="h-14 flex items-center px-4 border-b border-gray-200">
-        <span className="font-semibold text-gray-900">Innovando</span>
+        <img src="/logo-innovando.png" alt="Innovando" className="h-8 w-auto" />
       </div>
       <nav className="flex-1 p-3 flex flex-col gap-1">
         {links.map(({ href, label, icon: Icon }) => (

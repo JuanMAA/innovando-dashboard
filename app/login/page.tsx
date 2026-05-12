@@ -37,7 +37,10 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle className="text-2xl">Innovando Admin</CardTitle>
+          <div className="flex justify-center mb-2">
+            <img src="/logo-innovando.png" alt="Innovando" className="h-12 w-auto" />
+          </div>
+          <CardTitle className="text-2xl text-center">Admin</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
