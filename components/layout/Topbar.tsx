@@ -20,9 +20,9 @@ export default function Topbar({ userEmail }: TopbarProps) {
   }
 
   return (
-    <header className="h-16 border-b border-slate-700 bg-slate-900/50 backdrop-blur-sm flex items-center justify-between px-6">
+    <header className="h-12 border-b border-slate-700 bg-slate-900/50 backdrop-blur-sm flex items-center justify-between px-4">
       <div />
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
         <span className="text-sm text-slate-300">{userEmail}</span>
         <Button 
           variant="ghost" 
