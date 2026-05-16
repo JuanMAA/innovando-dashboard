@@ -2,13 +2,15 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, MapPin, Users, AlertTriangle, Activity } from 'lucide-react'
+import { LayoutDashboard, MapPin, Users, AlertTriangle, Activity, Inbox, Globe } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const links = [
   { href: '/', label: 'Inicio', icon: LayoutDashboard },
+  { href: '/paises', label: 'Países', icon: Globe },
   { href: '/ciudades', label: 'Ciudades', icon: MapPin },
   { href: '/leads', label: 'Leads', icon: Users },
+  { href: '/solicitudes', label: 'Solicitudes', icon: Inbox },
   { href: '/problemas', label: 'Problemas', icon: AlertTriangle },
   { href: '/apis', label: 'APIs', icon: Activity },
 ]

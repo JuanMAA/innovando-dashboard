@@ -128,3 +128,72 @@ export interface City {
   created_at: string
   updated_at: string
 }
+
+/* ── Country (master administrable) ─────────────────────────────── */
+
+export type PaymentMethod = 'paypal' | 'mercadopago'
+
+export interface Country {
+  code:             string             // 'CL', 'CO', 'EC', 'BR', 'BO', 'PE'
+  name:             string
+  currency:         string
+  enabled:          boolean
+  payment_methods:  PaymentMethod[]
+  launched_at:      string | null
+  flag_emoji:       string | null
+  notes:            string | null
+  created_at:       string
+  updated_at:       string
+}
+
+/* ── Lead (formulario del landing innovando-landing) ──────────────── */
+
+export type LeadStatus =
+  | 'new'
+  | 'contacted'
+  | 'qualified'
+  | 'converted'
+  | 'discarded'
+  | 'spam'
+
+export interface Lead {
+  id:               string
+  source:           string                // 'landing' | 'reports' | ...
+  page_key:         string | null
+  page_slug:        string | null
+  locale:           string | null
+  service_interest: string | null
+  business_type:    string | null
+  name:             string
+  email:            string | null
+  message:          string | null
+  instagram:        string | null
+  facebook:         string | null
+  website_linkedin: string | null
+  phone:            string | null
+  country:          string | null
+  utm_source:       string | null
+  utm_medium:       string | null
+  utm_campaign:     string | null
+  utm_term:         string | null
+  utm_content:      string | null
+  referrer:         string | null
+  user_agent:       string | null
+  ip:               string | null
+  status:           LeadStatus
+  internal_note:    string | null
+  contacted_at:     string | null
+  converted_at:     string | null
+  business_id:      string | null
+  assigned_to:      string | null         // auth.users.id
+  status_changed_at: string | null
+  created_at:       string
+  updated_at:       string
+}
+
+/* Helper UI: usuario del dashboard mostrado en selects */
+export interface DashboardUser {
+  id:    string
+  email: string | null
+  name:  string | null
+}
