@@ -19,8 +19,8 @@ export default function Sidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="w-56 shrink-0 bg-gradient-to-b from-slate-900 to-slate-800 border-r border-slate-700 flex flex-col">
-      <div className="h-12 flex items-center px-4 border-b border-slate-700 bg-slate-900/50 backdrop-blur-sm">
+    <aside className="w-56 shrink-0 bg-gradient-to-b from-slate-900 to-slate-800 dark:from-slate-950 dark:to-slate-900 border-r border-slate-700 dark:border-slate-800 flex flex-col">
+      <div className="h-12 flex items-center px-4 border-b border-slate-700 dark:border-slate-800 bg-slate-900/50 dark:bg-slate-950/50 backdrop-blur-sm">
         <img src="/logo-innovando.png" alt="Innovando" className="h-7 w-auto" />
       </div>
       <nav className="flex-1 p-3 flex flex-col gap-1">
@@ -32,7 +32,7 @@ export default function Sidebar() {
               'flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200',
               pathname === href
                 ? 'bg-blue-600 text-white'
-                : 'text-slate-300 hover:bg-slate-700/50 hover:text-white'
+                : 'text-slate-300 dark:text-slate-400 hover:bg-slate-700/50 dark:hover:bg-slate-800/50 hover:text-white dark:hover:text-white'
             )}
           >
             <Icon className="h-4 w-4 shrink-0" />

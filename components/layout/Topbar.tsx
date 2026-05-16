@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import { LogOut } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { createClient } from '@/lib/supabase/client'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 interface TopbarProps {
   userEmail: string
@@ -20,15 +21,16 @@ export default function Topbar({ userEmail }: TopbarProps) {
   }
 
   return (
-    <header className="h-12 border-b border-slate-700 bg-slate-900/50 backdrop-blur-sm flex items-center justify-between px-4">
+    <header className="h-12 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/50 backdrop-blur-sm flex items-center justify-between px-4">
       <div />
       <div className="flex items-center gap-3">
-        <span className="text-sm text-slate-300">{userEmail}</span>
+        <ThemeToggle />
+        <span className="text-sm text-slate-600 dark:text-slate-300">{userEmail}</span>
         <Button 
           variant="ghost" 
           size="sm" 
           onClick={handleLogout}
-          className="text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors"
+          className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors"
         >
           <LogOut className="h-4 w-4" />
         </Button>
